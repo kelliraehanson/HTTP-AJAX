@@ -12,7 +12,7 @@ function getNewId() {
 let friends = [
   {
     id: 1,
-    name: 'Ben!!',
+    name: 'Ben',
     age: 30,
     email: 'ben@lambdaschool.com',
   },
