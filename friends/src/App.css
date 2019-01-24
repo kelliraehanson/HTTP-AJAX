@@ -31,6 +31,15 @@
   }
 }
 
+span {
+    color: silver;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+    font-size: 55px;
+    text-decoration: none;
+    
+}
+
 h1 {
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -59,4 +68,24 @@ h3 {
   background-color: tomato;
   border: 1px solid white;
 
+}
+
+a {
+  text-decoration: none;
+}
+
+input {
+  height: 35px;
+  width: 300px;
+  margin-left: 30px;
+  margin-top: 15px;
+}
+
+button {
+  margin: 15px;
+  height: 35px;
+  width: 300px;
+  margin-left: 30px;
+  margin-top: 15px;
+  color: black;
 }
