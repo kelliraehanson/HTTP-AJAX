@@ -44,7 +44,7 @@ class FriendForm extends Component {
                 <input 
                 type='text'
                 name='name' 
-                placeholder='Name' 
+                placeholder='NAME...' 
                 value={this.state.friends.name}
                 onChange={this.handleChange}
                 />
@@ -52,7 +52,7 @@ class FriendForm extends Component {
                 <input 
                 type='number'
                 name='age' 
-                placeholder='Age' 
+                placeholder='AGE...' 
                 value={this.state.friends.age}
                 onChange={this.handleChange}
                 />
@@ -60,13 +60,13 @@ class FriendForm extends Component {
                 <input 
                 type='text'
                 name='email' 
-                placeholder='Email' 
+                placeholder='EMAIL...' 
                 value={this.state.friends.email}
                 onChange={this.handleChange}
                 />
 
-                <div className="submit">
-                <button type='submit' value='Submit' />
+                <div className="button">
+                <button type='submit' value='submit' placeholder='Add' />
                 </div>
 
                 </form>

@@ -10,11 +10,18 @@ import FriendForm from './component/FriendForm';
 
 const baseUrl = 'http://localhost:5000/friends';
 
+const clearedFriend = {
+  name: '',
+  age: '',
+  email: ''
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       friends: [],
+      friend: clearedFriend
     };
   }
 
@@ -23,26 +30,19 @@ class App extends Component {
     .get(`${baseUrl}/friends`)
     .then(response => {
       console.log(response.data);
-      this.setState({ 
-        friends: response.data 
-      });
+      this.setState({ friends: response.data });
 
       })
 
-      .catch(err => {
-        console.log(err);
-
+      .catch(err => { console.log(err);
       });
   }  
-      
-    //   this.setState({ friends: response.data }))
-    // .catch(err => console.log(err))
 
 
   addNewFriend = friend => {
 
     axios
-    .post('http://localhost:5000/friends', friend)
+    .post('http://localhost:5000/friends', friend) //the url can look like this or like it does above
     .then(response => {
       console.log(response.data);
       console.log(friend);
@@ -55,12 +55,23 @@ class App extends Component {
 
   }
 
+  deleteFriend = friend => {
+    
+    axios.delete('http://localhost:5000/friends', friend)
+    .then(response => {
+      this.setState({ friends: response.data })
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+
   render() {
     return (
       <div className="App">
-       <span>Add a Friend:</span>
+       <span>ADD A FRIEND:</span>
        <FriendForm addNewFriend={this.addNewFriend} />
-       <span>List of Friends:</span>
+       
        <FriendCard friends={this.state.friends} />
       
       </div>
