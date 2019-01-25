@@ -17,6 +17,8 @@ class FriendCard extends Component{
                         <h3>NAME: {friend.name}</h3>
                         <h3>AGE: {friend.age}</h3>
                         <h3>EMAIL: {friend.email}</h3>
+                        <button>Delete</button>
+                        <button>Update</button>
                     </div>
                 ))}
             </div>

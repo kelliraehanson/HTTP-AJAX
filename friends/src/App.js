@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
-// import { Route, Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import axios from 'axios';
 
 import FriendCard from './component/FriendCard';
@@ -38,6 +38,18 @@ class App extends Component {
       });
   }  
 
+  handleChanges = e => {
+    e.persist();
+    this.setState(prevState => {
+      return {
+        friend: {
+          ...prevState.friend,
+          [e.target.name]: e.target.value
+        }
+      }
+    })
+  }
+
 
   addNewFriend = friend => {
 
@@ -57,7 +69,8 @@ class App extends Component {
 
   deleteFriend = friend => {
     
-    axios.delete('http://localhost:5000/friends', friend)
+    axios
+    .delete('http://localhost:5000/friends', friend)
     .then(response => {
       this.setState({ friends: response.data })
     })
@@ -69,6 +82,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
+      {/* <Link to='/'></Link>
+      <Route
+      path='/'
+      render={props =>
+      <FriendCard
+    {...props}
+    friendCard={this.state.friendCard}
+  />} */}
+
        <span>ADD A FRIEND:</span>
        <FriendForm addNewFriend={this.addNewFriend} />
        
